@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS corpo_bombeiro;
+USE corpo_bombeiro;
+
+DROP TABLE IF EXISTS planilha_Sintetic;
+
+CREATE TABLE planilha_Sintetic (
+    ID INT AUTO_INCREMENT PRIMARY KEY, -- Agora o ID se auto-gerencia
+    intem VARCHAR(20) NOT NULL,
+    descricao TEXT NOT NULL,
+    und NUMERIC(10),
+    qtd NUMERIC(10,2),
+    valor NUMERIC(10,2),
+    total NUMERIC(15,2),
+    tipo ENUM('grupo', 'subgrupo', 'ITEM') NOT NULL DEFAULT 'ITEM',
+    item_pai VARCHAR(20),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
